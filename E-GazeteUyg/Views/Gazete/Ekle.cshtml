@@ -1,0 +1,39 @@
+﻿@model List<E_GazeteUyg.Models.Gazete>
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_LayoutForm.cshtml";
+}
+<h2>Gazete Ekle</h2>
+<div class="col-md-6">
+    <form action="/Gazete/Ekle" method="post" enctype="multipart/form-data">
+        <p>Gazete Seçiniz</p>
+        <select id="Adi" name="Adi" class="form-control">
+
+            <option value="-1" selected:selected>Seçiniz</option>
+            @foreach (var item in ViewBag.gazete)
+            {
+                <option value="@item.Adi">@item.Adi</option>
+            }
+        </select>
+        <br />
+        <div class="form-group">
+            <p>Tarih Seçiniz</p>
+            <input class="form-control" type="date" name="Tarih" id="Tarih" />
+        </div>
+
+        <div class="form-group">
+            <p>Resim Seçiniz</p>
+            <input class="form-control" type="file" name="Image" id="Image" />
+        </div>
+
+        <div class="form-group">
+            <p>PDF Seçiniz</p>
+            <input class="form-control" for="pdf" type="file" name="Pdf" id="Pdf" />
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block"> Ekle  </button>
+        </div>
+    </form>
+
+
+</div>

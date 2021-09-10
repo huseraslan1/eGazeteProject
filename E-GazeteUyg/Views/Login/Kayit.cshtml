@@ -1,0 +1,166 @@
+﻿
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <link class="cssdeck" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <title>Türk Medya</title>
+
+
+
+
+</head>
+<body>
+    <div class="header5">
+        <div class="navbar">
+            <div class="logo">
+                <br><img src="~/images/Akşam Logo Beyaz.png" width="130px">
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h1>
+                        Akşam Gazetesi ve tüm ekleri <br>bilgisayar,tablet ve telefonunda
+                    </h1>
+                    <p>Aksam.com.tr'den 7/24 Akşam Gazetesi'nin ve tüm eklerinin basılı <br> versiyonuna ve arşivlerine her yerinden erişin.</p>
+                    <form method="post" action="@Url.Action("Giris","Login")">
+                        <input type="submit" value="OKUMAYA BAŞLA &#8594">&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="submit" value="GİRİŞ YAP &#8594">
+                    </form>
+
+                </div>
+                <div class="col-md-5">
+
+                    <img class="newspaper" style="float: right;" src="~/images/header-newspaper (2).png">
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    </div>
+    <br>
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6  loginText ">
+                <span> Yeni Hesap Oluştur</span>
+                <div class="form-group">
+                    <article class="card-body mx-auto" style="max-width: 400px;">
+
+
+                        <form method="post" action="@Url.Action("Kayit","Login")">
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                                </div>
+
+                                <input name="AdSoyad" class="form-control" placeholder="Ad Soyad" type="text">
+                            </div>
+                            <br />
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                                </div>
+                                <input name="Eposta" class="form-control" placeholder="Email adresi" type="email">
+                            </div>
+                            <br />
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                                </div>
+                                <input name="Telefon" class="form-control" placeholder="Telefon Numarası" type="text">
+                            </div>
+                            <br />
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                </div>
+                                <input class="form-control" id="psd" name="Parola" placeholder="Şifre Yarat" type="password">
+                            </div>
+                            <br />
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                </div>
+                                <input class="form-control" id="psd2" name="ParolaTekrar" placeholder="Şifrenizi Doğrulayınız" type="password">
+                            </div>
+                            <span id="message"></span>
+                            <br />
+                            <input type="checkbox" id="check" required name="check" class="check-box"><span>Akşam E-Gazete Gizlilik Politikası'nı okudum,kabul ediyorum</span> <br />
+                            <input class="kayitbuton" id="kayitbuton" type="submit" value=" Hesabı Oluştur &#8594">
+
+                        </form>
+                    </article>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="col-md-6 giristext">
+                <span>Kullanıcı Girişi Yap</span>
+                <p style="font-size: 19px; font-weight: 400; "> Akşam Gazetesi ve Tüm eklerini dijital ortamda okumak için tek yapman gereken bir hesap oluşturmak.</p>
+                <input class="kullanıcıbuton" type="submit" value=" Kullanıcı Girişi Yap &#8594">
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <hr style="background-color: rgb(90, 90, 90); width: 1050px;">
+            <div style="float:left">
+                <span> Mesafeli Satış Sözleşmesi  İptal & İade Koşulları </span>
+                <div class="icon-vısa"></div>
+                <div class="icon-mastercard"></div>
+                <div class="icon-ssl"></div>
+            </div>
+
+
+            <div style="float: left; margin-left: 575px;">
+                <span> Copyright 2020 &#169; </span>
+                <div class="icon-turkmedya"></div>
+            </div>
+
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+    <script type="text/javascript">
+        $('#psd, #psd2').on('keyup', function () {
+            if ($('#psd').val() == $('#psd2').val()) {
+                $('#message').html('Şifre Eşleşti').css('color', 'green');
+            } else
+                $('#message').html('Şifre Eşleşmedi').css('color', 'red');
+        });
+        $('#kayitbuton').click(function () {
+            if ($('#psd').val() == $('#psd2').val()) {
+                alert('Kayıt İşlemi Başarıyla Gerçekleştirildi... Lütfen Hesabınızı Doğrulayınız')
+            }
+            else
+                alert('Kayıt İşlemi Başarısız...');
+
+
+        });
+    </script>
+
+</body>
+</html>

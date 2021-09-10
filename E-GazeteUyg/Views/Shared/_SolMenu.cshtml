@@ -1,0 +1,23 @@
+﻿<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<div class="col-md-3">
+    <nav class="navbar navbar-default sidebar" role="navigation">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/Home/Index">Ana Sayfa<span style="font-size:16px;" class="pull-right hidden-xs"></span></a></li>
+                    <li><a href="@Url.Action("aksamgazete","Gazete",new { gazeteID = 1})">Akşam<span style="font-size:16px;" class="pull-right hidden-xs "></span></a></li>
+                    <li><a href="@Url.Action("aksamgazete","Gazete",new { gazeteID = 2})">Güneş<span style="font-size:16px;" class="pull-right hidden-xs "></span></a></li>
+                    <li><a href="@Url.Action("aksamgazete","Gazete",new { gazeteID = 3})">Açık Görüş<span style="font-size:16px;" class="pull-right hidden-xs "></span></a></li>
+                    <li><a href="@Url.Action("aksamgazete","Gazete",new { gazeteID = 4})">Cumartesi<span style="font-size:16px;" class="pull-right hidden-xs "></span></a></li>
+                    <li><a href="/Musteri/Index">Üye Listesi / Abonelik<span style="font-size:16px;" class="pull-right hidden-xs "></span></a></li>
+                    <li><a href="/Gazete/Ekle">Gazete Ekle<span style="font-size:16px;" class="pull-right hidden-xs "></span></a></li>
+                    <br /><br /><br /><br />
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+

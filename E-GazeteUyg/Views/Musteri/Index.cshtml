@@ -1,0 +1,54 @@
+﻿@model List<E_GazeteUyg.Models.Kayit>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutForm.cshtml";
+}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
+
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js">
+
+    </script>
+</head>
+
+<div class="card-body col-md-9">
+    <div class="table-responsive">
+
+        <table id="example" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Eposta</th>
+                    <th>Ad Soyad </th>
+                    <th>Telefon</th>
+                    <th>Abonelik Durumu</th>
+                    <th>Abonelik Yönetimi</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Eposta</td>
+                        <td>@item.AdSoyad</td>
+                        <td>@item.Telefon</td>
+                        <td>@item.Abonelik</td>
+                       <td><a href="/Musteri/Abonelik/@item.Id" class="btn btn-primary btn-xs">Abonelik Yönetimi</a></td>
+                        
+                    </tr>
+                }
+                
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>

@@ -1,0 +1,70 @@
+﻿@model  List<E_GazeteUyg.Models.Kayit>
+@{
+    Layout = null;
+}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+</head>
+<body>
+    <div class="container">
+      
+
+
+        <div class="card bg-light" style="margin-top:60px">
+            <article class="card-body mx-auto" style="max-width: 400px;">
+                <h3 class="card-title mt-3 text-center">Abonelik Al</h3>
+               
+                <form method="post" action="@Url.Action("satinAl","Gazete",Model)">
+
+                    <div class="form-group input-group">
+                        <label for="Abonelik">Abonelik Seçimi: </label>
+
+                        <select name="abonelikBitis" id="abonelikBitis">
+                            <option value="@DateTime.Now.AddMonths(1)">Bir Aylık Abonelik 13.99₺</option>
+                            <option value="@DateTime.Now.AddMonths(2)">İki Aylık Abonelik 24.99₺</option>
+                            <option value="@DateTime.Now.AddMonths(3)">Üç Aylık Abonelik 33.99₺</option>
+                            <option value="@DateTime.Now.AddMonths(6)">Altı Aylık Abonelik 70.00₺</option>
+                        </select>
+                    </div>
+                    <input name="AboneTarih" value="AboneTarih" hidden />
+                    <div class="form-group input-group">
+                        <input name="AdSoyad" class="form-control" placeholder="Ad Soyad" type="text">
+                    </div>
+               
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+
+                        </div>
+                        <input name="kartNumarasi" class="form-control" placeholder="Kart Numarası" type="text">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+
+                        </div>
+                        <input class="form-control" name="Parola" placeholder="Güvenlik numarası" type="text">
+                    </div>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+
+                        </div>
+                        <input class="form-control" name="ParolaTekrar" placeholder="Son Kullanım Tarihi" type="text">
+                    </div>
+
+                    <span id='message'></span>
+                    <div class="form-group">
+                        <button type="submit" id="abonebuton" class="btn btn-primary btn-block"> Onayla  </button>
+                    </div>
+                </form>
+            </article>
+        </div> 
+    </div>
+ <script>
+     $('#abonebuton').click(function () {
+         alert('Abonelik Satın Alma İşlemi Başarılı!')
+     });
+ </script>
+</body>

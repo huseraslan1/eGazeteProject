@@ -1,0 +1,341 @@
+﻿@model PagedList<E_GazeteUyg.Models.DTO.HomeDTO>
+@{
+    Layout = null;
+    E_GazeteUyg.Models.Pager Pager = Session["Pager"] as E_GazeteUyg.Models.Pager;
+   
+
+}
+@using PagedList
+@using PagedList.Mvc
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="device-width, initial-scale=1.0">
+    <link href="~/style.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link class="cssdeck" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="~/zebra_datepicker.min.css" rel="stylesheet" />
+    <title>Türk Medya</title>
+    
+
+</head>
+
+
+
+<body>
+    @if ((bool)Session["AboneIzin"])
+    {
+        <div class="header5">
+            <div class="navbar">
+                <div class="logo">
+                    <br><img src="~/images/Akşam Logo Beyaz.png" width="130px">
+                </div>
+            </div>
+        </div>
+
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="@Url.Action("aksamgazete","Gazete",new { gazeteID = 1})">Akşam</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("aksamgazete","Gazete",new { gazeteID = 2})">Güneş</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("aksamgazete","Gazete",new { gazeteID = 3})">Açık Görüş </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("aksamgazete","Gazete",new { gazeteID = 4})">Cumartesi</a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+
+
+        <div class="row">
+            <div class="col-md-8"></div>
+            <div class="col-md-4">
+                <form class="nav" method="post" @Url.Action("aksamgazete", "Gazete", Model)>
+                    <input type="date" id="tarih" name="tarih">
+                    <button type="submit" class="btn btn-primary" style="height:50px; width:200px">Arşiv için tarih seçiniz</button>
+                </form>
+                <div class="page-wrapper"></div>
+            </div>
+        </div>
+
+
+
+
+        <div class="container">
+
+
+            <div class="row ">
+
+                <div class="col-md-6">
+                    <img src="~/images/Aksam_Logo_Krmz (1).png" width="130px">
+                    <br><span>Türkiye'nin yaşayan en eski gazetesi Akşam</span>
+
+                </div>
+
+                <div class="col-md-6">
+                    <a class="devamini-oku" style="vertical-align:middle" href="/Gazete/satinAl/@Session["kullanici"]"><span>Abonelik Mevcut</span></a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row justify-content-md-center">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3">
+
+                    <section class="new-arrival">
+                        <div class="product-container">
+                            <div class="product-box">
+                                <div class="product-img">
+                                    <a href="/pdf/@item.gazetePdf"><img src="/img\photo\@item.gazeteImage.Split(';')[0]"></a>
+                                </div>
+                                <div class="product-details">
+                                    @*<a href="http://stjgazete.takip.com/pdf/@item.gazetePdf" class="p-name">OKU</a>*@
+                                    <a href="@Url.Action("GazeteDetay","Gazete", new { id = item.gazeteID })" class="p-name">OKU</a>
+                                    <span class="p-price">@item.gazeteTarih.ToShortDateString()</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </section>
+
+
+                </div>
+            }
+
+
+
+                <div class="row ">
+
+                    <div class="col-md-4"></div>
+
+
+                    @Html.PagedListPager((IPagedList)Model, page => Url.Action("aksamgazete", new { page }), new PagedListRenderOptions
+               {
+
+                   LiElementClasses=new List<string>
+                   {"page-link"}
+               })
+
+          
+
+                </div>
+        </div>
+        
+
+
+        <div class="col-md-4">
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <hr style="background-color: rgb(90, 90, 90); width: 1050px;">
+                <div style="float:left">
+                    <span> Mesafeli Satış Sözleşmesi  İptal & İade Koşulları </span>
+                    <div class="icon-vısa"></div>
+                    <div class="icon-mastercard"></div>
+                    <div class="icon-ssl"></div>
+                </div>
+
+
+                <div style="float: left; margin-left: 532px;">
+                    <span> Copyright 2020 &#169; </span>
+                    <div class="icon-turkmedya"></div>
+                </div>
+
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+
+
+
+        <script src="js/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/zebra_datepicker@latest/dist/zebra_datepicker.min.js"></script>
+        <script>
+
+
+
+
+
+            $(document).ready(function () {
+
+
+                $('#tarih').Zebra_DatePicker();
+
+            });
+        </script>
+
+
+    }
+    else
+    {
+        <div class="header5">
+            <div class="navbar">
+                <div class="logo">
+                    <br><img src="~/images/Akşam Logo Beyaz.png" width="130px">
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="@Url.Action("aksamgazete","Gazete",new { gazeteID = 1})">Akşam</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("aksamgazete","Gazete",new { gazeteID = 2})">Güneş</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("aksamgazete","Gazete",new { gazeteID = 3})">Açık Görüş </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("aksamgazete","Gazete",new { gazeteID = 4})">Cumartesi</a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col-md-8"></div>
+            <div class="col-md-4">
+                <form class="nav" method="post" @Url.Action("aksamgazete", "Gazete", Model)>
+                    <input type="date" id="tarih" name="tarih">
+                    <button type="submit" class="btn btn-primary">Arşiv için tarih seçiniz</button>
+                </form>
+                <div class="page-wrapper"></div>
+            </div>
+        </div>
+
+
+
+
+        <div class="container">
+
+
+            <div class="row ">
+
+                <div class="col-md-6">
+                    <img src="~/images/Aksam_Logo_Krmz (1).png" width="130px">
+                    <br><span>Türkiye'nin yaşayan en eski gazetesi Akşam</span>
+
+                </div>
+
+                <div class="col-md-6">
+                    <a class="devamini-oku" style="vertical-align:middle" href="/Gazete/satinAl/@Session["kullanici"]"><span>Paket Satın Al</span></a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row justify-content-md-center">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3">
+
+                    <section class="new-arrival">
+                        <div class="product-container">
+                            <div class="product-box">
+                                <div class="product-img">
+                                    <a href=""><img src="/img\photo\@item.gazeteImage.Split(';')[0]"></a>
+                                </div>
+                                <div class="product-details">
+                                    <a href="/Gazete/satinAl/@Session["kullanici"]" class="p-name">OKUMAK İÇİN PAKET SATIN ALINIZ</a>
+                                    <span class="p-price">@item.gazeteTarih.ToShortDateString()</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </section>
+
+
+                </div>
+            }
+
+
+                <div class="row ">
+
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4"></div>
+                    @Html.PagedListPager((IPagedList)Model, page => Url.Action("aksamgazete", new { page }), new PagedListRenderOptions
+           {
+
+               LiElementClasses=new List<string>
+               {"page-link"}
+           })
+            
+
+                </div>
+             
+
+                <div class="col-md-4"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <hr style="background-color: rgb(90, 90, 90); width: 1050px;">
+                    <div style="float:left">
+                        <span> Mesafeli Satış Sözleşmesi  İptal & İade Koşulları </span>
+                        <div class="icon-vısa"></div>
+                        <div class="icon-mastercard"></div>
+                        <div class="icon-ssl"></div>
+                    </div>
+
+
+                    <div style="float: left; margin-left: 532px;">
+                        <span> Copyright 2020 &#169; </span>
+                        <div class="icon-turkmedya"></div>
+                    </div>
+
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        
+
+
+        <script src="js/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/zebra_datepicker@latest/dist/zebra_datepicker.min.js"></script>
+        <script>
+            $(document).ready(function () {
+
+                $('#tarih').Zebra_DatePicker();
+
+            });
+
+
+        </script>
+
+    }
+
+</body>
+
+
+</html>
